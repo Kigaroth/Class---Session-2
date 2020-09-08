@@ -17,42 +17,44 @@ std::string id_number = "";
 //Wage//
 int wage;
 
+//Base wage calculation//
+int hours_pr_month = days_pr_month * hours_pr_day;
+int base_wage = hours_pr_month * money_pr_hour;
+
 //Position//
 int ceo_manager_answer;
 
 int main()
 {
+    std::cout << "\t\t\t\t\t\t Wage calculator\n\n";
+    
     //name input//
-    std::cout << " Please enter your name: ";
+    std::cout << "Please enter your full name: ";
     std::getline(std::cin, full_name);
 
     //id input//
-    std::cout << " Please enter your ID number: ";
+    std::cout << "Please enter your ID number: ";
     std::getline(std::cin, id_number);
 
     //position input//
-    std::cout << " Are you a CEO or a manager? Answer by inputting 1 or 2: \n\t 1. Yes \n\t 2. No\n";
+    std::cout << "Are you a CEO or a manager? \n\t 1. Yes \n\t 2. No\n  Answer by inputting 1 or 2: ";
     std::cin >> ceo_manager_answer;
-
-    
-
-    //Base wage calculation//
-    int hours_pr_month = days_pr_month * hours_pr_day;
-    int base_wage = hours_pr_month * money_pr_hour;
     
     //Wage calculation//
-    if (ceo_manager_answer == 1) {
-        wage = base_wage + ceo_manager_bonus;
-    }
-    else {
-        wage = base_wage;
-    }
+        if (ceo_manager_answer == 1)
+        {
+            wage = base_wage + ceo_manager_bonus;
+        }
+        else
+        {
+            wage = base_wage;
+        }
 
     //Final output screen//
     system("cls");
-    system("cls");
-    std::cout << " Here is the information you have submitted: \n\n" "\t Name| " << full_name;
-    std::cout << "\n\t ID| " << id_number;
+    std::cout << "\t\t\t\t\t\t Wage calculator\n\n";
+    std::cout << " Here is the information you have submitted: \n\n" "\t Full name| " << full_name;
+    std::cout << "\n\t ID Number| " << id_number;
     std::cout << "\n\t Wage| " << wage, " NOK";
 
 }
