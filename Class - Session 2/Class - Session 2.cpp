@@ -4,9 +4,9 @@
 #include <string>
 
 //Constants for calculation//
-int days_per_month = 29;
-int hours_per_day = 8;
-int money_per_hour = 1000; //Money in NOK//
+int days_pr_month = 29;
+int hours_pr_day = 8;
+int money_pr_hour = 1000; //Money in NOK//
 int ceo_manager_bonus = 2000; //Money in NOK//
 
 //String inputs//
@@ -14,8 +14,11 @@ int ceo_manager_bonus = 2000; //Money in NOK//
 std::string full_name = "";
 std::string id_number = "";
 
+//Wage//
+int wage;
+
 //Position//
-int position_answer;
+int ceo_manager_answer;
 
 int main()
 {
@@ -28,6 +31,29 @@ int main()
     std::getline(std::cin, id_number);
 
     //position input//
-    std::cout << " Which position do you have? Answer by typing 1-3: \n\t 1. "
+    std::cout << " Are you a CEO or a manager? Answer by inputting 1 or 2: \n\t 1. Yes \n\t 2. No\n";
+    std::cin >> ceo_manager_answer;
+
+    
+
+    //Base wage calculation//
+    int hours_pr_month = days_pr_month * hours_pr_day;
+    int base_wage = hours_pr_month * money_pr_hour;
+    
+    //Wage calculation//
+    if (ceo_manager_answer == 1) {
+        wage = base_wage + ceo_manager_bonus;
+    }
+    else {
+        wage = base_wage;
+    }
+
+    //Final output screen//
+    system("cls");
+    system("cls");
+    std::cout << " Here is the information you have submitted: \n\n" "\t Name| " << full_name;
+    std::cout << "\n\t ID| " << id_number;
+    std::cout << "\n\t Wage| " << wage, " NOK";
+
 }
 
